@@ -7,7 +7,7 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--作用域默认单例-->
+    <!--作用域scope    默认单例 -->
     <!--prototype:每次引用都创建实例-->
     <!--request:每一次请求-->
     <!--session:每一次会话-->
@@ -27,6 +27,8 @@
         <!--<constructor-arg name="color" value="红色"/>-->
          <!--<constructor-arg name="size" value="10"/>-->
     <!--</bean>-->
+
+
     <!--集合类型-->
     <!--<bean id="StraightHeader" class="ysyplay.StraightHeader">-->
         <!--<constructor-arg>-->
@@ -37,9 +39,11 @@
         <!--</constructor-arg>-->
     <!--</bean>-->
     <!--配置文件形式-->
-    <bean id="StraightHeader" class="ysyplay.StraightHeader">
+    <bean id="header" class="ysyplay.StraightHeader">
+        <!--构造函数 注入-->
         <constructor-arg name="color" value="${color}"/>
         <constructor-arg name="size" value="${size}"/>
+        <!--set注入-->
         <property name="weight" value="10g"></property>
     </bean>
     <bean id="headerProperties"

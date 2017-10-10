@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component("header")
 public class StraightHeader implements Header {
-	@Value("${color}")
+	@Value("蓝色")
 	private String color;
 	@Value("${size}")
 	private int size;
