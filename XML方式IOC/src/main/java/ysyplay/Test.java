@@ -14,7 +14,7 @@ public class Test
         //初始化容器
         ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
 
-        Header StraightHeader = context.getBean("StraightHeader",StraightHeader.class);
+        Header StraightHeader = context.getBean("header",StraightHeader.class);
         StraightHeader.doWork();
 
         ScrewDriver screwDriver = context.getBean("screwDriver",ScrewDriver.class);

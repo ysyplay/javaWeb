@@ -1,7 +1,9 @@
 package com.netease.course;
 
-import javax.annotation.Resource;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+@Component("screwDriver")
 public class ScrewDriver {
 	@Resource //自动装配
 	private Header header;
