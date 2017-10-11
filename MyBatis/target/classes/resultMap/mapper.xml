@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http:// mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="resultMap.UserOp">
+    <select id="getUser" parameterType="int" resultMap="UserMap">
+        select
+        student.id as userId,userName,corp,
+        course.id as courseId,courseName,
+        teacher.id as teacherId,teacherName
+        from Student
+        left join
+        userCourse on student.id = userCourse.user_id
+        left join
+        course on course.id = userCourse.course_id
+        left join
+        teacher on teacher.id = course.teacher_id
+        where
+        student.id = #{id}
+    </select>
+    <resultMap id="UserMap"
+               type="resultMap.Student">
+        <constructor>
+            <idArg column="userId" javaType="int" />
+            <arg column="userName" javaType="String" />
+            <arg column="corp" javaType="String" />
+        </constructor>
+        <!--实现一对多的关联 查询该学生课程的每条结果映射为Course对象，保存到Student的courses属性数组中-->
+        <collection property="courses"
+                    ofType="resultMap.Course">
+            <id property="id" column="courseId" />
+            <result property="courseName" column="courseName" />
+            <!--查询的课程对应的老师映射为Teacher对象，保存到Course对象的teacher属性 这里的column="teacher_id"貌似可以不加（待验证）-->
+            <association property="teacher" column="teacher_idd"
+                         javaType="resultMap.Teacher">
+                <id property="id" column="teacherId" />
+                <result property="teacherName" column="teacherName" />
+            </association>
+        </collection>
+    </resultMap>
+</mapper>
