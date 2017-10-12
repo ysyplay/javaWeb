@@ -8,8 +8,8 @@
 
 	<context:component-scan base-package="com.netease.course" />
 
-	<bean id="screwDriver" class="com.netease.course.ScrewDriver">
-	</bean>
+	<!--<bean id="screwDriver" class="com.netease.course.ScrewDriver">-->
+<!--</bean>-->
 
 	<bean id="headerProperties"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
