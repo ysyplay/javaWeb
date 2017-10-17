@@ -9,6 +9,7 @@ import java.io.IOException;
 /**
  * Created by ysyplay on 2017/9/5.
  */
+//http://localhost:8080/api/hello/spring
 @Controller
 @RequestMapping(value = "/hello")
 public class HellowController {

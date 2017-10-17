@@ -9,19 +9,20 @@ import org.springframework.stereotype.Repository;
 
 @Repository("mybatisUserDao")
 public interface MybatisUserDao {
+	//这里用来对应和模型的属性
 	@Results({ 
-		@Result(property = "id", column = "id"), 
-		@Result(property = "firstName", column = "first_name"),
-		@Result(property = "lastName", column = "last_name") }
+		@Result(property = "balance", column = "balance"),
+		@Result(property = "user", column = "user")
+	}
 	)
-	@Select("select * from user where firt_name=#{firstName}")
-	public User getUser(String firstName);
+	@Select("select * from account where user=#{user}")
+	public User getUser(String user);
 
 	@Results({ 
-		@Result(property = "id", column = "id"), 
-		@Result(property = "firstName", column = "first_name"),
-		@Result(property = "lastName", column = "last_name") }
+		@Result(property = "balance", column = "balance"),
+			@Result(property = "user", column = "user")
+	}
 	)
-	@Select("Select * from user")
+	@Select("Select * from account")
 	public List<User> getUserList();
 }

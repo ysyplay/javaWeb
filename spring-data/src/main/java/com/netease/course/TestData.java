@@ -10,8 +10,8 @@ public class TestData {
 
 	public static void main(String[] args) throws Exception
 	{
-		 testAccount();
-//         testMybatis();
+//		 testAccount();
+         testMybatis();
 	}
 	public static void testAccount()
 	{
@@ -41,11 +41,11 @@ public class TestData {
 		MybatisUserDao dao = context.getBean("mybatisUserDao", MybatisUserDao.class);
 		List<User> userList = dao.getUserList();
 		for (User user: userList) {
-			System.out.println(user.getFirstName() + " " + user.getLastName());
+			System.out.println(user.getUser() + " " + user.getBalance());
 		}
 
-		User liLei = dao.getUser("Lei");
-		System.out.println("getByFirstName: " + liLei.getFirstName() + " " + liLei.getLastName());
+		User liLei = dao.getUser("li");
+		System.out.println("Name: " + liLei.getUser() + " " + liLei.getBalance());
 
 		((ConfigurableApplicationContext) context).close();
 

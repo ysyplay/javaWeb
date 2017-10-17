@@ -32,7 +32,6 @@ public class AccountDao {
 				Account account = new Account();
 				account.setUser(rs.getString("user"));
 				account.setBalance(rs.getDouble("balance"));
-
 				return account;
 			}
 		});
@@ -43,7 +42,6 @@ public class AccountDao {
 		throwException();
 		this.jdbcTemplate.update("update account set balance=balance+? where user=?", count, target);
 	}
-
 	private void throwException() {
 		throw new RuntimeException("ERROR");
 	}

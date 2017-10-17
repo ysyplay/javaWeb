@@ -9,7 +9,6 @@ import java.util.Map;
 /**
  * Created by ysyplay on 2017/9/6.
  */
-
 public class StraightHeader implements Header
 {
 
